@@ -27,3 +27,4 @@ bin/
 practice.iml
 ### Mac OS ###
 .DS_Store
+src/*.txt;
