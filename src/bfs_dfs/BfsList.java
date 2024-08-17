@@ -1,28 +1,33 @@
-package dfs;
+package bfs_dfs;
 
 import java.util.LinkedList;
-import java.util.Scanner;
 
-public class DfsList {
+public class BfsList {
+	private static final int SIZE = 9;
 	private static LinkedList<LinkedList<Integer>> test = new LinkedList<>();
-	private static boolean[] visited;
+	private static boolean[] visited = new boolean[SIZE];
+	private static LinkedList<Integer> queue = new LinkedList<>();
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-
-		int n = sc.nextInt();
-		for (int i = 0; i < n + 1; i++)
+		for (int i = 0; i < SIZE; i++) {
 			test.add(new LinkedList<>());
+		}
 		initData();
-		visited = new boolean[n + 1];
-		dfs(1);
+		bfs(1);
+
 	}
 
-	private static void dfs(int visit) {
-		System.out.println("visit = " + visit);
+	private static void bfs(int visit) {
+		queue.add(visit);
 		visited[visit] = true;
-		for (int i : test.get(visit)) {
-			if (!visited[i])
-				dfs(i);
+		while (!queue.isEmpty()) {
+			int node = queue.remove();
+			System.out.println("node = " + node);
+			for (int i : test.get(node)) {
+				if (!visited[i]) {
+					queue.add(i);
+					visited[i] = true;
+				}
+			}
 		}
 	}
 

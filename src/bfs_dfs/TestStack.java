@@ -1,8 +1,6 @@
-package bfs;
+package bfs_dfs;
 
-import java.util.ArrayDeque;
 import java.util.LinkedList;
-import java.util.List;
 
 public class TestStack {
 	public static void main(String[] args) {
